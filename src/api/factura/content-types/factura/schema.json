@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "facturas",
+  "info": {
+    "singularName": "factura",
+    "pluralName": "facturas",
+    "displayName": "facturas"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fecha_emision": {
+      "type": "date",
+      "required": true
+    },
+    "total": {
+      "type": "decimal"
+    }
+  }
+}

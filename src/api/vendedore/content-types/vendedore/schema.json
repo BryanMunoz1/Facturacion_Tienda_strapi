@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vendedores",
+  "info": {
+    "singularName": "vendedore",
+    "pluralName": "vendedores",
+    "displayName": "Vendedores"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "turno_trabajo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

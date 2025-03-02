@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cajeros",
+  "info": {
+    "singularName": "cajero",
+    "pluralName": "cajeros",
+    "displayName": "Cajeros"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "turno_trabajo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

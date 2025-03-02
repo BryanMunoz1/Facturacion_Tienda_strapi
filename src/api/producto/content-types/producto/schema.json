@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "productos",
+  "info": {
+    "singularName": "producto",
+    "pluralName": "productos",
+    "displayName": "productos"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "precio": {
+      "type": "decimal",
+      "required": true
+    },
+    "cantidad_stock": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

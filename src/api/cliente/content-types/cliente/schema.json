@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clientes",
+  "info": {
+    "singularName": "cliente",
+    "pluralName": "clientes",
+    "displayName": "Clientes"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "direccion": {
+      "type": "string",
+      "required": true
+    },
+    "correo_electronico": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    },
+    "telefono": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

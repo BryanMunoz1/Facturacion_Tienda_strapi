@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "detalle_facturas",
+  "info": {
+    "singularName": "detalle-factura",
+    "pluralName": "detalle-facturas",
+    "displayName": "detalle_factura"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "cantidad": {
+      "type": "integer",
+      "required": true
+    },
+    "precio_unitario": {
+      "type": "decimal"
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}
