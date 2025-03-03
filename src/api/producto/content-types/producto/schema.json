@@ -24,6 +24,12 @@
     "cantidad_stock": {
       "type": "integer",
       "required": true
+    },
+    "detalle_factura": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::detalle-factura.detalle-factura",
+      "inversedBy": "productos"
     }
   }
 }

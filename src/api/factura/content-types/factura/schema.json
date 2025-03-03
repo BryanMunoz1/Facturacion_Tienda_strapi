@@ -4,7 +4,8 @@
   "info": {
     "singularName": "factura",
     "pluralName": "facturas",
-    "displayName": "facturas"
+    "displayName": "facturas",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,30 @@
     },
     "total": {
       "type": "decimal"
+    },
+    "cajeros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cajero.cajero",
+      "mappedBy": "factura"
+    },
+    "clientes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cliente.cliente",
+      "mappedBy": "factura"
+    },
+    "vendedores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vendedore.vendedore",
+      "mappedBy": "factura"
+    },
+    "detalle_factura": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::detalle-factura.detalle-factura",
+      "inversedBy": "facturas"
     }
   }
 }

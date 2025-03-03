@@ -4,7 +4,8 @@
   "info": {
     "singularName": "detalle-factura",
     "pluralName": "detalle-facturas",
-    "displayName": "detalle_factura"
+    "displayName": "detalle_factura",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,18 @@
     "subtotal": {
       "type": "decimal",
       "required": true
+    },
+    "facturas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::factura.factura",
+      "mappedBy": "detalle_factura"
+    },
+    "productos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto.producto",
+      "mappedBy": "detalle_factura"
     }
   }
 }

@@ -21,6 +21,12 @@
     "turno_trabajo": {
       "type": "string",
       "required": true
+    },
+    "factura": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::factura.factura",
+      "inversedBy": "cajeros"
     }
   }
 }

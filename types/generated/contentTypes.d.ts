@@ -384,6 +384,7 @@ export interface ApiCajeroCajero extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    factura: Schema.Attribute.Relation<'manyToOne', 'api::factura.factura'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -418,6 +419,7 @@ export interface ApiClienteCliente extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     direccion: Schema.Attribute.String & Schema.Attribute.Required;
+    factura: Schema.Attribute.Relation<'manyToOne', 'api::factura.factura'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -437,6 +439,7 @@ export interface ApiDetalleFacturaDetalleFactura
   extends Struct.CollectionTypeSchema {
   collectionName: 'detalle_facturas';
   info: {
+    description: '';
     displayName: 'detalle_factura';
     pluralName: 'detalle-facturas';
     singularName: 'detalle-factura';
@@ -449,6 +452,7 @@ export interface ApiDetalleFacturaDetalleFactura
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    facturas: Schema.Attribute.Relation<'oneToMany', 'api::factura.factura'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -456,6 +460,7 @@ export interface ApiDetalleFacturaDetalleFactura
     > &
       Schema.Attribute.Private;
     precio_unitario: Schema.Attribute.Decimal;
+    productos: Schema.Attribute.Relation<'oneToMany', 'api::producto.producto'>;
     publishedAt: Schema.Attribute.DateTime;
     subtotal: Schema.Attribute.Decimal & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -467,6 +472,7 @@ export interface ApiDetalleFacturaDetalleFactura
 export interface ApiFacturaFactura extends Struct.CollectionTypeSchema {
   collectionName: 'facturas';
   info: {
+    description: '';
     displayName: 'facturas';
     pluralName: 'facturas';
     singularName: 'factura';
@@ -475,9 +481,15 @@ export interface ApiFacturaFactura extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    cajeros: Schema.Attribute.Relation<'oneToMany', 'api::cajero.cajero'>;
+    clientes: Schema.Attribute.Relation<'oneToMany', 'api::cliente.cliente'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    detalle_factura: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::detalle-factura.detalle-factura'
+    >;
     fecha_emision: Schema.Attribute.Date & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -490,6 +502,10 @@ export interface ApiFacturaFactura extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    vendedores: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::vendedore.vendedore'
+    >;
   };
 }
 
@@ -509,6 +525,10 @@ export interface ApiProductoProducto extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     descripcion: Schema.Attribute.Text;
+    detalle_factura: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::detalle-factura.detalle-factura'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -539,6 +559,7 @@ export interface ApiVendedoreVendedore extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    factura: Schema.Attribute.Relation<'manyToOne', 'api::factura.factura'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

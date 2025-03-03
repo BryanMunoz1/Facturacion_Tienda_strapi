@@ -30,6 +30,12 @@
     "telefono": {
       "type": "integer",
       "required": true
+    },
+    "factura": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::factura.factura",
+      "inversedBy": "clientes"
     }
   }
 }
