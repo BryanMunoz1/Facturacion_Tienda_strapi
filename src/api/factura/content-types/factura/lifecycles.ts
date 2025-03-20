@@ -21,7 +21,7 @@ module.exports = {
       if (data.detalles !== undefined) {
         const { id } = where;
         const strapiDetalles = await strapi.entityService.findMany('api::detalle-factura.detalle-factura', {
-          filters: { factura: id }
+          filters: { facturas: id }
         });
         
         // Calculamos el total sumando los subtotales
@@ -35,7 +35,7 @@ module.exports = {
       
       // Calculamos el total después de crear la factura
       const strapiDetalles = await strapi.entityService.findMany('api::detalle-factura.detalle-factura', {
-        filters: { factura: result.id }
+        filters: { facturas: result.id }
       });
       
       const total = strapiDetalles.reduce((sum, detalle) => sum + detalle.subtotal, 0);
