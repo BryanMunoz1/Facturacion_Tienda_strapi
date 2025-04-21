@@ -4,8 +4,8 @@
   "info": {
     "singularName": "factura",
     "pluralName": "facturas",
-    "displayName": "facturas",
-    "description": ""
+    "displayName": "Facturas",
+    "description": "Facturas de transacciones de venta"
   },
   "options": {
     "draftAndPublish": true
@@ -18,29 +18,29 @@
     "total": {
       "type": "decimal"
     },
-    "cajeros": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cajero.cajero",
-      "mappedBy": "factura"
-    },
-    "clientes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::cliente.cliente",
-      "mappedBy": "factura"
-    },
-    "vendedores": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::vendedore.vendedore",
-      "mappedBy": "factura"
-    },
-    "detalle_factura": {
+    "cajero": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::detalle-factura.detalle-factura",
+      "target": "api::cajero.cajero",
       "inversedBy": "facturas"
+    },
+    "cliente": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::cliente.cliente",
+      "inversedBy": "facturas"
+    },
+    "vendedor": {
+      "type": "relation",
+      "relation": "manyToOne", 
+      "target": "api::vendedore.vendedore",
+      "inversedBy": "facturas"
+    },
+    "detalles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::detalle-factura.detalle-factura",
+      "mappedBy": "factura"
     }
   }
 }

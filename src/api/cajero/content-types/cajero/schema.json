@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cajero",
     "pluralName": "cajeros",
-    "displayName": "Cajeros"
+    "displayName": "Cajeros",
+    "description": "Personal que procesa los pagos"
   },
   "options": {
     "draftAndPublish": true
@@ -22,11 +23,11 @@
       "type": "string",
       "required": true
     },
-    "factura": {
+    "facturas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::factura.factura",
-      "inversedBy": "cajeros"
+      "mappedBy": "cajero"
     }
   }
 }

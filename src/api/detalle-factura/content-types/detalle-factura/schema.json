@@ -4,8 +4,8 @@
   "info": {
     "singularName": "detalle-factura",
     "pluralName": "detalle-facturas",
-    "displayName": "detalle_factura",
-    "description": ""
+    "displayName": "Detalles de Factura",
+    "description": "Detalle de productos en una factura"
   },
   "options": {
     "draftAndPublish": true
@@ -13,26 +13,27 @@
   "attributes": {
     "cantidad": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 1
     },
     "precio_unitario": {
-      "type": "decimal"
-    },
-    "subtotal": {
       "type": "decimal",
       "required": true
     },
-    "facturas": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::factura.factura",
-      "mappedBy": "detalle_factura"
+    "subtotal": {
+      "type": "decimal"
     },
-    "productos": {
+    "producto": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::producto.producto",
-      "mappedBy": "detalle_factura"
+      "inversedBy": "detalle_facturas"
+    },
+    "factura": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::factura.factura",
+      "inversedBy": "detalles"
     }
   }
 }

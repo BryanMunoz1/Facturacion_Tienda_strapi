@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vendedore",
     "pluralName": "vendedores",
-    "displayName": "Vendedores"
+    "displayName": "Vendedores",
+    "description": "Personal que asiste en la venta"
   },
   "options": {
     "draftAndPublish": true
@@ -22,11 +23,11 @@
       "type": "string",
       "required": true
     },
-    "factura": {
+    "facturas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::factura.factura",
-      "inversedBy": "vendedores"
+      "mappedBy": "vendedor"
     }
   }
 }

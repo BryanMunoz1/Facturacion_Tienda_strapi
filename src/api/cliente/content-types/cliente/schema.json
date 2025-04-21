@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cliente",
     "pluralName": "clientes",
-    "displayName": "Clientes"
+    "displayName": "Clientes",
+    "description": "Compradores en la tienda"
   },
   "options": {
     "draftAndPublish": true
@@ -19,23 +20,23 @@
       "required": true
     },
     "direccion": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "correo_electronico": {
       "type": "email",
-      "unique": true,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "telefono": {
-      "type": "integer",
+      "type": "string",
       "required": true
     },
-    "factura": {
+    "facturas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::factura.factura",
-      "inversedBy": "clientes"
+      "mappedBy": "cliente"
     }
   }
 }

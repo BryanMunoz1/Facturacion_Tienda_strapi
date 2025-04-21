@@ -4,7 +4,8 @@
   "info": {
     "singularName": "producto",
     "pluralName": "productos",
-    "displayName": "productos"
+    "displayName": "Productos",
+    "description": "Productos disponibles para la venta"
   },
   "options": {
     "draftAndPublish": true
@@ -23,13 +24,14 @@
     },
     "cantidad_stock": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 0
     },
-    "detalle_factura": {
+    "detalle_facturas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::detalle-factura.detalle-factura",
-      "inversedBy": "productos"
+      "mappedBy": "producto"
     }
   }
 }
